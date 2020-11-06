@@ -1,0 +1,37 @@
+---
+
+# This playbook will create two VMs on Chameleon Cloud
+- name: Create VM2
+  openstack.cloud.server_info:
+       state: present
+       cloud: chameleon
+       name: tristan-louis-vm2
+       security_groups: default
+       image: CC-Ubuntu18.04
+       key_name: tristan-louis-key
+       flavor: m1.small
+       nics:
+         - net-id: 4b484898-92b4-4a4b-9c5d-7d55bd72f1ee
+         - net-name: CH-819381-net
+       wait: yes
+       floating_ips:
+         - 129.114.24.252
+
+- name: Create VM3
+  openstack.cloud.server_info:
+       state: present
+       cloud: chameleon
+       name: tristan-louis-vm3
+       security_groups: default
+       image: CC-Ubuntu18.04
+       key_name: tristan-louis-key
+       flavor: m1.small
+       nics:
+         - net-id: 4b484898-92b4-4a4b-9c5d-7d55bd72f1ee
+         - net-name: CH-819381-net
+       wait: yes
+       floating_ips:
+         - 129.114.26.21
+
+...
+

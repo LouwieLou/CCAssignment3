@@ -1,0 +1,22 @@
+---
+
+# Task #1
+  - name: Enter Kafka Folder
+    command: cd kafka_2.13-2.6.0/
+  
+# Task #2
+  - name: Set Security
+    become: yes
+
+    - name: Secure Port 9092
+      command: ufw limit proto tcp from any to any port 9092
+
+    - name: Secure Port 2181
+      command: ufw limit proto tcp from any to any port 2181
+
+# Task #3
+  - name: Create Utilizations
+    command: bin/kafka-topics.sh --create --topic utilizations --bootstrap-server localhost:9092
+
+...
+

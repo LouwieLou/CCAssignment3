@@ -1,0 +1,14 @@
+---
+
+# Task #1
+  - name: Install Prerequisites
+    apt:
+      name: gnubg ca-certificates
+      state: latest
+  
+# Task #2
+  - name: Install CouchDB
+    command: echo "deb https://apache.bintray.com/couchdb-deb bionic main" | sudo tee /etc/apt/sources.list.d/couchdb.list
+
+...
+

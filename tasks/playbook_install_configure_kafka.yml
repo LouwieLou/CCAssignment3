@@ -1,0 +1,25 @@
+ wget---
+
+# Task #1
+  - name: Install Kafka
+    command: wget http://mirror.metrocast.net/apache/kafka/2.6.0/kafka_2.13-2.6.0.tgz
+  
+# Task #2
+  - name: Configure Kafka
+    command: zcat kafka_2.13-2.6.0.tgz | tar xpof -
+
+# Task #3 Miscellaneous Upgrades
+  - name: Upgrade CouchDB
+    command: python3 -m pip install --upgrade couchdb
+
+  - name: Upgrade Kafka
+    command: python3 -m pip install --upgrade kafka-python
+
+  - name: Install Java
+    apt:
+      name: default-jdk
+      update_cache: yes
+      state: latest
+
+...
+

@@ -1,0 +1,8 @@
+---
+# This playbook will fix ansible and Python on cloud VM
+  - name: Fix Ansible
+    apt: name=subversion state=latest
+    become: yes
+
+...
+

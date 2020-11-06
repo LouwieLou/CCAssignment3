@@ -1,0 +1,42 @@
+---
+
+# Pre-Task(s)
+- hosts: MyLocalVMs
+  remote_user: ubuntu
+  become: yes
+  gather_facts: no
+  pre_tasks:
+    - name: Update
+      command: apt-get update
+
+    - name: Install Python3
+      command: apt-get install python3-pip -y
+
+# Play #1
+- name: Configure local VM
+  hosts: MyLocalVMs
+  remote_user: ubuntu
+  gather_facts: no
+  become: yes
+
+  tasks:
+   - include_tasks: tasks/playbook_configure_local_vm.yml
+
+# Play #2
+- name: Create Chameleon VMs
+  hosts: MyLocalVMs
+  remote_user: ubuntu
+  gather_facts: no
+  become: yes
+  collections:
+    - name: openstack.cloud
+
+  tasks:
+   - include_tasks: tasks/playbook_create_cloud_vms.yml
+   
+# Play #3
+- name: Install apps on Chameleon VMs
+- import_playbook: playbook_install_apps_on_vm2.yml
+- import_playbook: playbook_install_apps_on_vm3.yml
+
+...

@@ -1,0 +1,14 @@
+---
+
+- hosts: MyChameleonVM2
+  remote_user: cc
+  collections:
+    - openstack.cloud
+
+  tasks:
+   - include_tasks: tasks/playbook_install_configure_kafka.yml
+   - include_tasks: tasks/playbook_set_security.yml
+
+
+...
+

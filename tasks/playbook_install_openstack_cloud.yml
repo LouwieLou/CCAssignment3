@@ -1,0 +1,16 @@
+---
+# This playbook will install OpenStack Cloud on local VM
+  - name: Install OpenStack Cloud
+    openstack.cloud.server:
+	 state: present
+	 cloud: chameleon
+	 name: tristan-louis-VM1
+	 image: CC-Ubuntu18.04
+	 key_name: 
+	 nics:
+	   - net-id: 4b484898-92b4-4a4b-9c5d-7d55bd72f1ee
+	   - net-name: CH-819381-net
+	   
+
+...
+
