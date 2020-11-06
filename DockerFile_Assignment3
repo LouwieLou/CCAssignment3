@@ -1,0 +1,15 @@
+FROM ubuntu:18.04
+
+RUN apt-get -y update && apt-get -y install apt-utils g++ emacs python3 wget py$
+RUN wget http://mirror.metrocast.net/apache/kafka/2.6.0/kafka_2.13-2.6.0.tgz
+RUN zcat kafka_2.13-2.6.0.tgz | tar xpof -
+RUN python3 -m pip install --upgrade couchdb kafka-python
+RUN cd kafka_2.13-2.6.0/
+RUN sudo ufw limit proto tcp from any to any port 9092
+RUN sudo ufw limit proto tcp from any to any port 2181
+
+CMD /bin/bash
+
+
+
+
